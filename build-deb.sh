@@ -30,25 +30,25 @@ mkdir -p ${BUILD_ROOT}/usr/share/man/man8
 
 echo 'Copying application files'
 install -p -m 644 ${BASE_DIR}/dist/amazon-efs-mount-watchdog.conf ${BUILD_ROOT}/etc/init
-install -p -m 644 dist/amazon-efs-mount-watchdog.service ${BUILD_ROOT}/etc/systemd/system
-install -p -m 444 dist/efs-utils.crt ${BUILD_ROOT}/etc/amazon/efs
-install -p -m 644 dist/efs-utils.conf ${BUILD_ROOT}/etc/amazon/efs
-install -p -m 755 src/mount_efs/__init__.py ${BUILD_ROOT}/sbin/mount.efs
-install -p -m 755 src/watchdog/__init__.py ${BUILD_ROOT}/usr/bin/amazon-efs-mount-watchdog
+install -p -m 644 ${BASE_DIR}/dist/amazon-efs-mount-watchdog.service ${BUILD_ROOT}/etc/systemd/system
+install -p -m 444 ${BASE_DIR}/dist/efs-utils.crt ${BUILD_ROOT}/etc/amazon/efs
+install -p -m 644 ${BASE_DIR}/dist/efs-utils.conf ${BUILD_ROOT}/etc/amazon/efs
+install -p -m 755 ${BASE_DIR}/src/mount_efs/__init__.py ${BUILD_ROOT}/sbin/mount.efs
+install -p -m 755 ${BASE_DIR}/src/watchdog/__init__.py ${BUILD_ROOT}/usr/bin/amazon-efs-mount-watchdog
 
 echo 'Copying install scripts'
-install -p -m 755 dist/scriptlets/after-install-upgrade ${BUILD_ROOT}/postinst
-install -p -m 755 dist/scriptlets/before-remove ${BUILD_ROOT}/prerm
-install -p -m 755 dist/scriptlets/after-remove ${BUILD_ROOT}/postrm
+install -p -m 755 ${BASE_DIR}/dist/scriptlets/after-install-upgrade ${BUILD_ROOT}/postinst
+install -p -m 755 ${BASE_DIR}/dist/scriptlets/before-remove ${BUILD_ROOT}/prerm
+install -p -m 755 ${BASE_DIR}/dist/scriptlets/after-remove ${BUILD_ROOT}/postrm
 
 echo 'Copying control file'
-install -p -m 644 dist/amazon-efs-utils.control ${BUILD_ROOT}/control
+install -p -m 644 ${BASE_DIR}/dist/amazon-efs-utils.control ${BUILD_ROOT}/control
 
 echo 'Copying conffiles'
-install -p -m 644 dist/amazon-efs-utils.conffiles ${BUILD_ROOT}/conffiles
+install -p -m 644 ${BASE_DIR}/dist/amazon-efs-utils.conffiles ${BUILD_ROOT}/conffiles
 
 echo 'Copying manpages'
-install -p -m 644 man/mount.efs.8 ${BUILD_ROOT}/usr/share/man/man8/mount.efs.8
+install -p -m 644 ${BASE_DIR}/man/mount.efs.8 ${BUILD_ROOT}/usr/share/man/man8/mount.efs.8
 
 echo 'Creating deb binary file'
 echo '2.0'> ${BUILD_ROOT}/debian-binary
