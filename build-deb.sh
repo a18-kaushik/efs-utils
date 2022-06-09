@@ -9,7 +9,7 @@
 
 set -ex
 
-BASE_DIR=$(pwd)
+BASE_DIR=$(pwd)/efs-utils
 BUILD_ROOT=${BASE_DIR}/build/debbuild
 VERSION=1.33.1
 RELEASE=1
